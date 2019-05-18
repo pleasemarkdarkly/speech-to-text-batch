@@ -6,3 +6,4 @@ cleaning silence audio blocks appears where translates returns null and breaks t
 requirements.txt for pip install -r 
 increase threads in fast.py to increase workers 
 10 hours of court transcripts processed in under 20 minutes with 8 threads
+10 hours is about 1,121 API calls at .006 or $6.70 
