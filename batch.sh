@@ -1,41 +1,70 @@
 #!/bin/bash
-# Shell Script to take chunked audio into transcripts
-# break the combined single files into thirty minute parts
-# function from process_file from source to thirty folder
-# remove previous thirty contents
 
-# source helper functions
-source ./process_file.sh
+# Process .WAV files in directory source/ and sub-divide
+# transcribe and combine
 
-# Using Hourly Blocks
+# Source helper functions
+source ./install.sh
+
+# Create project folder
+project=`date '+%Y%m%d%H%M%S'`
+mkdir $project
+echo "Create folder "$project
 
 # Clear out working parts/
 # Remove contents of parts
 rm -rf parts/
 mkdir parts
 
-# Fixed to processing from working_source directory
-for f in ./working_source/*.wav
+# Convert any mp4 files in source/
+echo "Convert any mp4 into wav"
+
+# Move into source/ directory
+cd source
+for m in *.mp4
 do
-  echo "Working on $f part (default hourly)"
-  echo "Clear parts/ folder which holds 30 second blocks"
+  echo "Converting "$m
+  ffmpeg -i $m -vn -acodec pcm_s16le -ar 44100 -ac 2 $m.wav
+  remove_silence $m.wav
+done
+
+# Return to main path
+cd ..
+
+# Fixed to processing from working_source directory
+for f in ./source/*.wav
+do
+  echo "Working on" $f "part"
+  echo "Clear parts/ folder which holds 59 second blocks"
   rm -rf parts/
   mkdir parts
 
-  echo "Remove silence and audio bursts"
-  remove_silence $f
+# Remove silence in .wav creation
+#  echo "Remove silence and audio bursts"
+#  remove_silence $f
 
-  echo "Process each audio listening block to 30 second Google processing block"
-# create 30 second parts from 30 minute parts
-  process_wav_minutes_parts $f
+  echo "Process each audio listening block to 59 second Google processing blocks"
+# create 59 second parts
+  process_wav_sub_minute_parts $f
 
   echo "Spawn worker threads to send to Google to process"
-  echo "Increase threads in fast.py for faster parallalization"
   python3 fast.py
-  echo "Default listening block translated"
-  echo "File created"
-# when this is done it creates transcript.txt file
+
+# When fast.py is done it creates transcript.txt file
   today=`date '+%Y%m%d%H%M%S'`
   mv -v transcript.txt 'transcript-'$today'.txt'
 done
+
+# Clean up
+echo "Move original files and transcripts to project folder"
+mv -v source/*.mp4 $project
+
+mv -v *.txt ./$project
+cd $project
+cat *.txt > $project'_transcript.txt
+cd ..
+
+echo "Clean up .wav files in source/"
+echo "Done"
+
 
