@@ -103,7 +103,8 @@ The batch.sh and slow.py and fast.py will require authentication of the Google S
 
 In testing I was able to take 10 hours of court transcripts processed in under twenty (20) minutes with eight (8) threads. Ten (10) hours is about 1,121 API calls at .006 or $6.70, this was using thirty (30) second parts. Obviously, that means half that amount. Batch.sh by default uses the most cost effective call and pulls from source/ regardless of audio length.
 
-
-
+**TODO**
+1. Make better timestamps
+2. Separate speakers
 
 Scripts were derived from the work of [Alex](https://www.alexkras.com/). I added infrastructure to drop in the MP4 files into the source folder and generate transcript breaking apart the file and combining them back together.
