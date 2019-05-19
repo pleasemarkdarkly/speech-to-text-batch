@@ -26,6 +26,7 @@ do
   echo "Converting "$m
   ffmpeg -i $m -vn -acodec pcm_s16le -ar 44100 -ac 2 $m.wav
   remove_silence $m.wav
+  rm *original*
 done
 
 # Return to main path
@@ -55,16 +56,22 @@ do
   mv -v transcript.txt 'transcript-'$today'.txt'
 done
 
-# Clean up
-echo "Move original files and transcripts to project folder"
-mv -v source/*.mp4 $project
+mkdir $project
 
-mv -v *.txt ./$project
+# Clean up
+echo "Move original files,processed wavs,  and transcripts to project folder"
+mv -v source/*.mp4 $project
+mkdir $project/wavs
+mv -v source/*.wav $project/wavs
+
+mv -v transcript-*.txt ./$project
 cd $project
-cat *.txt > $project'_transcript.txt
+cat *.txt >'all_'$project'_transcripts.txt
 cd ..
 
-echo "Clean up .wav files in source/"
+# echo "Clean up .wav files in source/"
+
+
 echo "Done"
 
 
