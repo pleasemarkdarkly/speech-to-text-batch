@@ -2,7 +2,7 @@
 
 **How to deal with annoying .trm files to useful, searchable text.**
 
-Court proceedings are usually offered in FTR ([For The Record](https://www.fortherecord.com/)) format or WAV. WAV is not only more expensive (because it requires 74 mins for each hour on every CD-ROM) but not useful for Court reporters, if that is the eventual path for the materials. Courts usually make available the FTR files within the hour of the order. FTR is a proprietary format, with virtually no other playback or export option online. The purpose of the proprietary format is to enable pedals and Court Clerk control for the transcription process.  This set of scripts and Python tools are meant to minimize the suckage related to getting these FTRs from the Court and actually listening to them.
+Court proceedings are usually offered in FTR ([For The Record](https://www.fortherecord.com/)) format or WAV. WAV is not only more expensive (because it requires 74 mins for each hour on every CD-ROM) but not useful for Court reporters, if that is the eventual path for the materials. Courts usually make available the FTR files within the hour of the order. FTR is a proprietary format, with virtually no other playback or export option online. The purpose of the proprietary format is to enable pedals and Court Clerk control for the transcription process.  This set of scripts and Python tools are meant to minimize the suckage related to getting these FTRs from the Court and actually manipulating them.
 
 **For The Record Online Account to Upload Files for the Player**
 
