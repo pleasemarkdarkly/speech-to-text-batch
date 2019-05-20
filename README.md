@@ -6,11 +6,11 @@ Court proceedings are usually offered in FTR ([For The Record](https://www.forth
 
 **For The Record Online Account to Upload Files for the Player**
 
-Create an online account with FTR Online player where you can upload your content from the Court.  This is nice so you don't have to worry about having your files one your local system wasting space. Open your .TRM file in FTR Online Player. 
+Create an online account with FTR Online player where you can upload your content from the Court.  This is nice so you don't have to worry about having your files on your local system wasting space. Open your .TRM file in the FTR Online Player. 
 
 **How to Use Chrome (Developer inspection) to Extract MP4**
 
-Open "Developer" with F12 (in Chrome, other browsers have similar options) under View and go to the "Network" tab.  Find the sub-tab "Media", by selecting "play" in the browser, you will see all the media that's being played. Right-click on the GUID-ish looking media file and open in new tab or download as MP4.  See the below image with the GUID-ish highlighted in orange. When you see the same number multiple times, rest assured its the same file, just presented multiple times during the sessions it is playing. 
+Open "Developer" with F12 (in Chrome, other browsers have similar options) under View and go to the "Network" tab.  Find the sub-tab "Media", by selecting "play" in the browser, you will see the media that's being played. Right-click on the GUID-ish looking media file and open in new tab or download as MP4.  See the below image with the GUID-ish highlighted in orange. When you see the same number multiple times, rest assured its the same file, just presented multiple times during the sessions it is playing. 
 
 ![](image/FTR_online_player_whole.jpg)
 
