@@ -11,15 +11,19 @@ r = sr.Recognizer()
 files = sorted(os.listdir('parts/'))
 
 def transcribe(data):
+    
     idx, file = data
     name = "parts/" + file
     print(name + " started")
     # Load audio file
     with sr.AudioFile(name) as source:
         audio = r.record(source)
-    # Transcribe audio file
-    text = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
-    print(name + " done")
+    try:
+        # Transcribe audio file
+        text = r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)
+        print(name + " done")
+    except:
+        text = ""
     return {
         "idx": idx,
         "text": text
