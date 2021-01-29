@@ -1,4 +1,4 @@
-# **From Court proceedings recordings to Text Transcripts**
+# **Convert Court proceedings recordings to Text Transcripts**
 
 **How to deal with annoying .trm files to useful, searchable text.**
 
